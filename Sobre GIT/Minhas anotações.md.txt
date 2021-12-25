@@ -1,0 +1,97 @@
+O Git é um sistema distribuído seguro.
+
+##### SHA1
+Essa sigla significa Secure Hash Algorithm (Algoritmo de Hash Seguro), é um conjunto de funções hash criptográficas projetadas pela NSA.
+
+Essa encriptação gera um conjunto de caracteres identificador de 40 dígitos, que é único.
+
+##### Usando SHA1 no Git Bash:
+openssl sha1 (passar o arquivo de texto a ser encriptado)
+
+### Objetos fundamentais Git
+##### (Blobs)
+Contém o tipo do objeto, o tamanho do arquivo, \0, sha1 do arquivo
+
+##### (Tree)
+
+Armazena o blob e um outro tipo de estrutura de dado, o commit
+\0, aponta para um blob, sha1, nome do arquivo
+
+##### (Commit)
+Aponta para uma arvore, para o ultimo commit realizando antes dele, para o autor e uma mensagem
+commit, tamanho, tree(sha1), parente(sha1), autor, mensagem, timestamp
+
+
+
+###### Chave SSH
+
+Forma de estabelecer uma conexão segura e encriptada entre duas máquinas, como servidor do github e a minha máquina, contendo duas chaves, uma pública e outra privada.
+Para gerar essa chave, tem que usar o Git Bash:
+
+ssh-keygen -t ed25519 -C (seu email)
+Visualizar assinatura da chave pública: cat id-ed25519. pub
+Inicializar o SSH: eval $(ssh-agent -s)
+Entregar a chave para o agente: ssh-add id_ed25519 (passar a chave privada)
+
+
+
+##### Clonar repositório:
+
+Pegar o link do repositório no github
+voltar ao gitbash
+git clone (passar o caminho ssh)
+
+###### Para configurar o seu usuário e colocar ele atrelado ao seu github:
+git config --global user.email "seu email"
+git config --global user.name seunome
+git config --list (lista todas as configurações do seu git)
+
+
+
+#### Primeiros comandos 
+
+##### Iniciar o GIT
+Cria um repósitorio no GIT dentro de um diretório.
+git init (Importante que a pasta já esteja aberta no terminal)
+Gerencia e  versiona o código.
+ls -a (visualiza arquivos ocultos dentro da pasta)
+
+##### Iniciar o versionamento
+git add * (Importante que a pasta já esteja aberta no terminal)
+
+##### Criar um commit
+git commit -m "add um comentário curto como commit inicial" (Importante que a pasta já esteja aberta no terminal)
+
+
+
+#### Ciclo de vida dos arquivos
+
+###### (Untracked)
+
+Arquivo que o Git não sabe da existência dele
+
+###### (Tracked) 
+
+Arquivos que o Git sabe da existência dele
+
+###### (Unmodified) 
+
+Arquivo não modificado
+o git usa o sha1 do arquivo para descobrir se ele foi modificado
+
+###### (Modified) 
+
+Arquivo modificado
+o git add  move o arquivo para o staged, para entrar em ação
+
+###### (Staged) 
+
+Arquivos se preparando para fazer parte de outro agrupamento, sendo preparado para fazer parte de um commit
+
+
+
+##### Outros comandos
+
+git status (mostra os status dos arquivos)
+git rm (remove arquivo)
+echo > README.md (cria o arquivo readme, que servirá como uma capa do nosso repositório)

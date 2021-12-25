@@ -1,0 +1,34 @@
+##### Mudar pastas:
+
+cd / (possiblita a navegação entre as pastas)
+cd Windows (entra dentro da pasta Windows)
+
+##### Listar pastas:
+
+dir (lista as pastas presentes no diretório escolhido)
+
+##### Criar pastas/arquivos:
+
+mkdir (pasta)
+
+##### Deletar pastas/arquivos:
+
+delete (passar o nome da pasta para deletar os arquivos nela em seguida)
+rmdir /S /Q
+
+##### Retroceder 1 nível na navegação de pastas:
+cd ..
+
+##### Limpar a tela:
+cls
+ctrl+l
+
+##### Autocompletar:
+tab
+
+##### Printar na tela determinada frase digitada pelo usuário:
+
+echo
+
+##### Mostrar o caminho completo da pasta:
+pwd
